@@ -29,14 +29,25 @@ Decentraland works in Ethereum mainnet, ropsten and Matic. There are 4 registere
 
 ### Aliases
 
-For each protocol, to make the URN friendlyer to read, we specify some aliases:
+For each protocol, to make the URN friendlyer to read, we specify some aliases, the aliases are defined in this live file: https://contracts.decentraland.org/addresses.json which should be used every time a contract needs to be resolved.
 
-#### Ethereum Mainnet
+#### Example: Ethereum Mainnet
 
 - `urn:decentraland:ethereum:LAND` resolves to `0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d`
 - `urn:decentraland:ethereum:ESTATE` resolves to `0x959e104E1a4dB6317fA58F8295F586e1A978c297`
 
-(more aliases to come)
+Using that information, `urn:decentraland:ethereum:LAND:4763953136893138488487244504044754960247` resolves to `urn:decentraland:ethereum:0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d:4763953136893138488487244504044754960247` which can be interpreted as:
+
+```yml
+# to validate ownership in the blochckain of urn:decentraland:ethereum:LAND:4763953136893138488487244504044754960247
+ethereum-chain: mainnet
+contract: 0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d (LAND)
+token-id: 4763953136893138488487244504044754960247
+```
+
+### Content resolvers
+
+(more to come)
 
 ## Custom resolvers
 
