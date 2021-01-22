@@ -2,6 +2,7 @@
 namespace: urn:decentraland
 github-org: https://github.com/decentraland
 contact-email: developers@decentraland.org
+npm-package: @dcl/urn-resolver
 ---
 
 # Description
