@@ -20,12 +20,15 @@ The hierarchy is defined by the `{protocol}` component of the URN.
 
 ## The Ethereum resolvers
 
-Decentraland works in Ethereum mainnet, ropsten and Matic. There are 4 registered roots for blockchain assets:
+Decentraland works in different blockchains and networks: There are 4 registered roots for blockchain assets:
 
 - Ethereum Mainnet: `urn:decentraland:ethereum:{contract-or-alias}:{tokenId}`
 - Ethereum Ropsten: `urn:decentraland:ropsten:{contract-or-alias}:{tokenId}`
+- Ethereum Kovan: `urn:decentraland:kovan:{contract-or-alias}:{tokenId}`
+- Ethereum Rinkeby: `urn:decentraland:rinkeby:{contract-or-alias}:{tokenId}`
+- Ethereum Goerli: `urn:decentraland:goerli:{contract-or-alias}:{tokenId}`
 - Matic Mainnet: `urn:decentraland:matic:{contract-or-alias}:{tokenId}`
-- Matic Mumbai: `urn:decentraland:matic:{contract-or-alias}:{tokenId}`
+- Matic Mumbai: `urn:decentraland:mumbai:{contract-or-alias}:{tokenId}`
 
 ### Aliases
 
@@ -47,12 +50,16 @@ token-id: 4763953136893138488487244504044754960247
 
 ### Content resolvers
 
-(more to come)
+(more to come) _how to resolve JSON metadata URL for LAND, ESTATES and NAMES_
 
 ## Custom resolvers
 
-For some use cases, like default wearables (non-blockchain based assets) we will use custom resolvers.
+For some use cases, like default wearables (non-blockchain based assets) we will use custom `off-chain` protocol.
 
-Custom resolvers start with `x-` in the protocol, like custom HTTP headers. This is so to avoid conflicts with future protocols and to easily differentiate blockchain assets from non-blockchain assets.
+This is so to avoid conflicts with future protocols and to easily differentiate blockchain assets from non-blockchain assets.
 
-E.g. `urn:decentraland:x-base-avatars:{collection}:{assetId}` -> `urn:decentraland:x-base-avatars:hats:top-hat-1`
+Following the pattern:  
+`urn:decentraland:off-chain:{asset-type}:{collection}:{assetId}`
+
+We can get URNs like:  
+`urn:decentraland:off-chain:base-avatars:hats:top-hat-1`
