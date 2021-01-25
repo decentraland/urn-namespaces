@@ -44,14 +44,24 @@ Using that information, `urn:decentraland:ethereum:LAND:476395313689313848848724
 
 ```yml
 # to validate ownership in the blochckain of urn:decentraland:ethereum:LAND:4763953136893138488487244504044754960247
-ethereum-chain: mainnet
-contract: 0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d (LAND)
-token-id: 4763953136893138488487244504044754960247
+blockchain: ethereum
+network: mainnet
+contractAddress: 0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d (LAND)
+id: 4763953136893138488487244504044754960247
 ```
 
 ### Content resolvers
 
-(more to come) _how to resolve JSON metadata URL for LAND, ESTATES and NAMES_
+Detailed URN resolution schemas are available at the repository [decentraland/urn-resolver](https://github.com/decentraland/urn-resolver/)
+
+- `decentraland:off-chain:{registry}:{name}`: Resolve static offchain assets (i.e. base wearables, not in any blockchain nor content server)
+- `decentraland:{protocol}:collections:v1:{contract(0x[a-fA-F0-9]+)}:{name}`: Resolve an ethereum wearables collection asset by contract address (v1)
+- `decentraland:{protocol}:collections:v1:{collection-name}:{name}`: Resolve an ethereum wearables collection asset by collection name (wearables API) (v1)
+- `decentraland:{protocol}:collections:v2:{contract(0x[a-fA-F0-9]+)}:{id}`: Resolve an ethereum wearables collection asset by contract address (v2)
+- `decentraland:{protocol}:LAND:{x},{y}`: Resolves the ethereum asset of a LAND position.
+- `decentraland:{protocol}:LAND:{tokenId}`: Resolves the ethereum asset of a LAND by tokenId.
+- `decentraland:{protocol}:{contract(0x[a-fA-F0-9]+)}:{tokenId}`: Resolve an ethereum asset by contract address
+- `decentraland:{protocol}:{contract([a-zA-Z][a-zA-Z_0-9]*)}:{tokenId}`: Resolve an ethereum asset by contract name
 
 ## Custom resolvers
 
@@ -60,7 +70,7 @@ For some use cases, like default wearables (non-blockchain based assets) we will
 This is so to avoid conflicts with future protocols and to easily differentiate blockchain assets from non-blockchain assets.
 
 Following the pattern:  
-`urn:decentraland:off-chain:{asset-type}:{collection}:{assetId}`
+`urn:decentraland:off-chain:{collection}:{assetId}`
 
 We can get URNs like:  
-`urn:decentraland:off-chain:base-avatars:hats:top-hat-1`
+`urn:decentraland:off-chain:base-avatars:top-hat-1`
